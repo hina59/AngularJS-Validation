@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="ValidateController">
+        <ng-form name="validateform">
+            Mobile:
+            <input type="text" ng-model="mobile" name="mobile" placeholder="0123456789" ng-pattern="/^\d{0,10}$/" />
+            <br />
+            <span ng-show="validateform.mobile.$error.pattern"  style="color:red">Mobile number should be in valid formate.</span>
+            <br/>
+            Email:
+            <input type="text" ng-model="email" name="email" placeholder="abc@xyz.com" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+            <br />
+            <span ng-show="validateform.email.$error.pattern"  style="color:red">Enter Proper Email.</span>
+        </ng-form>
+    </div>
+    <script>
+    var app = angular.module("app", []);
+    app.controller('ValidateController', ['$scope', function ($scope) {
+        
+    }]);
+</script>
+</body>
+</html>
