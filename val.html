@@ -1,0 +1,33 @@
+Hello Friends,
+Now,we are going to learn how make only validation for allow only digit for textbox in using angualrJS.
+
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<input type="text" ng-model="mno" ng-keypress="myonlydigit($event)" />
+<input type="text" ng-model="mno1" ng-keypress="myonlyalphabets($event)" />
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.myonlydigit = function(e) {          
+          if((e.which<48 || e.which>57) && e.which != 8)
+          {  e.preventDefault();}          
+    }
+    $scope.myonlyalphabets = function(e) {          
+          if((e.which<65 || e.which>90) && e.which != 8 && (e.which<97 || e.which>122))
+          {  e.preventDefault();}        
+    }
+});
+</script>
+
+<p>Click the button to show/hide the menu.</p>
+
+</body>
+</html>
+
